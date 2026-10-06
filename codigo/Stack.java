@@ -15,4 +15,15 @@ public class Stack {
         novo.setProximo(topo);
         topo = novo;
     }
+
+    public Node pop() {
+        if (isEmpty()) {
+            return null;
+        }
+        Node removido = topo;
+        topo = topo.getProximo();
+        removido.setProximo(null);
+        return removido;
+
+    }
 }
