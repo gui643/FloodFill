@@ -15,4 +15,7 @@ public class Node {
     public Node getProximo() {
         return proximo;
     }
+     public Position getPosition() {
+        return position;
+    }
 }
