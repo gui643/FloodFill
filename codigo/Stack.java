@@ -11,7 +11,7 @@ public class Stack {
         return topo == null;
     }
 
-    public void Push(Node novo) {
+    public void push(Node novo) {
         novo.setProximo(topo);
         topo = novo;
     }
