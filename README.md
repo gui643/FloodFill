@@ -7,7 +7,7 @@ O projeto utiliza uma imagem para realizar o preenchimento a partir de uma coord
 região selecionada. O programa possui duas formas de realizar o preenchimento, utilizando pilha e fila, 
 além de salvar as etapas do processo em arquivos de imagem.
 
-#Funcionamento 
+# Funcionamento 
 
 Ao executar o código Main, vai aparecer no terminal as seguintes operações:
 
