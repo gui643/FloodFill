@@ -83,4 +83,43 @@ public class Main {
         inicio = new Position(x, y);
         System.out.println("Coordenada de início definida: X=" + x + ", Y=" + y);
     }
+
+    private static void executar(boolean usarPilha) {
+        if (imagem == null) {
+            System.out.println("Escolha uma imagem primeiro (opção 3).");
+            return;
+        }
+        if (inicio == null) {
+            System.out.println("Escolha a coordenada de início primeiro (opção 4).");
+            return;
+        }
+
+        System.out.println("Digite a nova cor (valores de 0 a 255):");
+        int r = lerInteiro("Vermelho (R): ", 0, 255);
+        int g = lerInteiro("Verde (G): ", 0, 255);
+        int b = lerInteiro("Azul (B): ", 0, 255);
+        int novaCor = 0xFF000000 | (r << 16) | (g << 8) | b;
+
+        BufferedImage copia = servico.copiar(imagem);
+        FloodFill floodFill = new FloodFill(servico);
+        String pasta = usarPilha ? "saida_pilha" : "saida_fila";
+
+        try {
+            int pintados;
+            if (usarPilha) {
+                pintados = floodFill.preencherComPilha(copia, inicio, novaCor, pasta);
+            } else {
+                pintados = floodFill.preencherComFila(copia, inicio, novaCor, pasta);
+            }
+
+            if (pintados == 0) {
+                System.out.println("A nova cor é igual à cor original da região. Nada foi alterado.");
+            } else {
+                System.out.println("Concluído, Pixels pintados: " + pintados);
+                System.out.println("Imagens salvas na pasta: " + pasta);
+            }
+        } catch (IOException e) {
+            System.out.println("Erro ao salvar as imagens: " + e.getMessage());
+        }
+    }
 }
