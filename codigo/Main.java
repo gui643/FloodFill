@@ -55,4 +55,32 @@ public class Main {
             }
         }
     }
+
+     private static void escolherImagem() {
+        System.out.print("Caminho da imagem: ");
+        String caminho = teclado.nextLine().trim().replace("\"", "");
+        if (caminho.isEmpty()) {
+            System.out.println("Nenhum caminho informado.");
+            return;
+        }
+        try {
+            imagem = servico.abrir(caminho);
+            inicio = null; 
+            System.out.println("Imagem carregada: " + imagem.getWidth() + "x" + imagem.getHeight());
+            System.out.println("Escolha a coordenada de início (opção 4).");
+        } catch (IOException e) {
+            System.out.println("Erro: " + e.getMessage());
+        }
+    }
+
+    private static void escolherCoordenada() {
+        if (imagem == null) {
+            System.out.println("Escolha uma imagem primeiro (opção 3).");
+            return;
+        }
+        int x = lerInteiro("Digite X (coluna, 0 a " + (imagem.getWidth() - 1) + "): ", 0, imagem.getWidth() - 1);
+        int y = lerInteiro("Digite Y (linha, 0 a " + (imagem.getHeight() - 1) + "): ", 0, imagem.getHeight() - 1);
+        inicio = new Position(x, y);
+        System.out.println("Coordenada de início definida: X=" + x + ", Y=" + y);
+    }
 }
