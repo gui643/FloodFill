@@ -27,13 +27,22 @@ Selecione a opção 3 para escolher a imagem que será utilizada. Logo depois, i
 Em seguida, selecione a opção 4 para informar as coordenadas X e Y do pixel inicial da pintura. A coordenada deve estar dentro 
 dos limites da imagem escolhida;
 
-# 3. Executar o Flood Fill
+# 3.Escolher a nova cor
+
+Após definir as coordenadas X e Y do pixel inicial, informe os valores RGB da nova cor que será aplicada à região selecionada.
+O programa solicita três valores:
+
+Vermelho (Red): valor de 0 a 255.
+Verde (Green): valor de 0 a 255.
+Azul (Blue): valor de 0 a 255.
+
+# 4. Executar o Flood Fill
 Você terá 2 opções de estruturas, pilha e fila. Será realizado o preenchimento utilizando com uma das 2.
 
-# 4. Acompanhar as etapas e conferir o resultado
+# 5. Acompanhar as etapas e conferir o resultado
 Durante a execução, o programa salva imagens numeradas que mostram a evolução do preenchimento, 
 permitindo acompanhar as alterações realizadas nos pixels. Ao final, a imagem resultante é salva como resultado.png.
 
-# 5. Encerrar o programa
+# 6. Encerrar o programa
 
 Para sair, selecione a opção 0.
