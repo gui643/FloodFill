@@ -10,6 +10,34 @@ public class Main {
     private static BufferedImage imagem = null; 
     private static Position inicio = null;
 
+    public static void main(String[] args) {
+        int opcao = -1;
+        while (opcao != 0) {
+            mostrarMenu();
+            opcao = lerOpcao();
+
+            switch (opcao) {
+                case 1:
+                    executar(true);
+                    break;
+                case 2:
+                    executar(false);
+                    break;
+                case 3:
+                    escolherImagem();
+                    break;
+                case 4:
+                    escolherCoordenada();
+                    break;
+                case 0:
+                    System.out.println("Encerrando o programa.");
+                    break;
+                default:
+                    System.out.println("Opção inválida. Digite um número de 0 a 4.");
+            }
+        }
+    }
+
     private static void mostrarMenu() {
         System.out.println();
         System.out.println("FLOOD FILL ");
